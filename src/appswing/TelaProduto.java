@@ -63,7 +63,7 @@ public class TelaProduto extends JDialog {
 	 */
     public TelaProduto(JFrame parent) {
         super(parent, "Gerenciar Produtos", true);
-        setSize(600, 400);
+        setBounds(100, 100, 600, 500);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
         

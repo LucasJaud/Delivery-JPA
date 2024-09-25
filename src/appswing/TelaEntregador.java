@@ -43,16 +43,16 @@ public class TelaEntregador extends JDialog {
 //	}
 
 	
-	 public TelaEntregador() {
-	        this(null); // Chama o construtor que aceita Frame, passando null
-	    }
+//	 public TelaEntregador() {
+//	        this(null); // 
+//	    }
 	/**
 	 * Create the dialog.
 	 */
 	public TelaEntregador(Frame parent) {
 		super(parent, "Entregadores", true);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        setBounds(100, 100, 450, 300);
+        setBounds(100, 100, 600, 400);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
@@ -63,7 +63,7 @@ public class TelaEntregador extends JDialog {
         tableModel = new DefaultTableModel(new Object[]{"Nome","Entregas"}, 0);
         table = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(table);
-//        scrollPane.setPreferredSize(new Dimension(200, 150));
+        table.setPreferredScrollableViewportSize(new Dimension(500, 200));
         contentPane.add(scrollPane, BorderLayout.CENTER);
 
         // Painel para inputs e botões
@@ -105,7 +105,21 @@ public class TelaEntregador extends JDialog {
         panel.add(btnRemover);
         panel.add(btnAdicionar);
 
-        // Carregar lista ao abrir a tela
+        JLabel lblNumEntregas = new JLabel("Buscar por Numero de entregas:");
+        panel.add(lblNumEntregas);
+        JTextField textFieldNumEntregas = new JTextField(15);
+        panel.add(textFieldNumEntregas);
+
+        JButton btnBuscar = new JButton("Buscar");
+        btnBuscar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int numEntregas = Integer.parseInt(textFieldNumEntregas.getText());
+                buscarEntregadoresPorNumEntregas(numEntregas);
+            }
+        });
+        panel.add(btnBuscar);
+
+        
         carregarListaEntregadores();
         
 	}
@@ -122,6 +136,18 @@ public class TelaEntregador extends JDialog {
             JOptionPane.showMessageDialog(this, "Erro ao carregar entregadores: " + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
+	
+	private void buscarEntregadoresPorNumEntregas(int numEntregas) {
+	    try {
+	        List<Entregador> entregadores = Fachada.entregadoresNumEntregas(numEntregas);
+	        tableModel.setRowCount(0); 
+	        for (Entregador entregador : entregadores) {
+	            tableModel.addRow(new Object[]{entregador.getNome(), entregador.getEntregas().size()});
+	        }
+	    } catch (Exception e) {
+	        JOptionPane.showMessageDialog(this, "Erro ao buscar entregadores: " + e.getMessage());
+	    }
+	}
 
     private void adicionarEntregador() {
     	 String nome = textFieldNome.getText();
