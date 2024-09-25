@@ -1,0 +1,57 @@
+22:56:37,678  INFO Util:22 - ----conectar banco - lendo arquivo de propriedades 
+22:56:37,681  INFO Util:27 - sgbd => postgresql
+22:56:37,681  INFO Util:28 - banco => delivery
+22:56:37,681  INFO Util:29 - ip => localhost
+22:56:37,681  INFO Util:34 - ----configurando postgresql
+22:56:37,700 DEBUG logging:38 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+22:56:37,790  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
+22:56:37,841  INFO Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+22:56:37,872 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+22:56:37,872  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+22:56:38,051  WARN pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+22:56:38,058  INFO pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+22:56:38,058  INFO pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/delivery]
+22:56:38,058  INFO pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+22:56:38,058  INFO pooling:171 - HHH10001003: Autocommit mode: false
+22:56:38,060  INFO pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+22:56:39,274  INFO JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+22:56:39,295  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3af5c6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+22:56:45,426 DEBUG SQL:135 - select e1_0.nome from entregador e1_0
+22:56:45,448 DEBUG SQL:135 - select e1_0.entregador,e1_0.id,e1_0.data,e1_0.endereco from entrega e1_0 where e1_0.entregador=?
+22:56:45,449 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Lucas]
+22:56:45,453 DEBUG SQL:135 - select e1_0.entregador,e1_0.id,e1_0.data,e1_0.endereco from entrega e1_0 where e1_0.entregador=?
+22:56:45,454 TRACE bind:24 - binding parameter (1:VARCHAR) <- [João]
+22:56:45,455 DEBUG SQL:135 - select e1_0.entregador,e1_0.id,e1_0.data,e1_0.endereco from entrega e1_0 where e1_0.entregador=?
+22:56:45,455 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Paulo]
+22:56:45,456 DEBUG SQL:135 - select e1_0.entregador,e1_0.id,e1_0.data,e1_0.endereco from entrega e1_0 where e1_0.entregador=?
+22:56:45,456 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Felipe]
+22:56:45,457 DEBUG SQL:135 - select e1_0.entregador,e1_0.id,e1_0.data,e1_0.endereco from entrega e1_0 where e1_0.entregador=?
+22:56:45,457 TRACE bind:24 - binding parameter (1:VARCHAR) <- [Felix]
+22:56:47,169 DEBUG SQL:135 - select e1_0.nome from entregador e1_0
+22:56:48,910 DEBUG SQL:135 - select p1_0.id,p1_0.descricao from produto p1_0
+22:56:52,877 DEBUG SQL:135 - select p1_0.id,p1_0.descricao from produto p1_0 where p1_0.id=?
+22:56:52,877 TRACE bind:24 - binding parameter (1:INTEGER) <- [1]
+22:56:54,517 DEBUG SQL:135 - select p1_0.id,p1_0.descricao from produto p1_0 where p1_0.id=?
+22:56:54,517 TRACE bind:24 - binding parameter (1:INTEGER) <- [2]
+22:56:56,466 DEBUG SQL:135 - select p1_0.id,p1_0.descricao from produto p1_0 where p1_0.id=?
+22:56:56,467 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+22:57:21,253 DEBUG SQL:135 - select e1_0.nome from entregador e1_0 where e1_0.nome=?
+22:57:21,254 TRACE bind:24 - binding parameter (1:VARCHAR) <- [João]
+22:57:21,263 DEBUG SQL:135 - insert into entrega (data,endereco,entregador) values (?,?,?) returning id
+22:57:21,264 TRACE bind:24 - binding parameter (1:VARCHAR) <- [23/08/2023]
+22:57:21,265 TRACE bind:24 - binding parameter (2:VARCHAR) <- [Jaguaribe]
+22:57:21,265 TRACE bind:24 - binding parameter (3:VARCHAR) <- [João]
+22:57:21,285 DEBUG SQL:135 - insert into entrega_has_produtos (entrega_id,produto_id) values (?,?)
+22:57:21,286 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
+22:57:21,286 TRACE bind:24 - binding parameter (2:INTEGER) <- [1]
+22:57:21,287 DEBUG SQL:135 - insert into entrega_has_produtos (entrega_id,produto_id) values (?,?)
+22:57:21,288 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
+22:57:21,288 TRACE bind:24 - binding parameter (2:INTEGER) <- [2]
+22:57:21,288 DEBUG SQL:135 - insert into entrega_has_produtos (entrega_id,produto_id) values (?,?)
+22:57:21,289 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
+22:57:21,289 TRACE bind:24 - binding parameter (2:INTEGER) <- [3]
+22:57:29,177 DEBUG SQL:135 - select e1_0.id,e1_0.data,e1_0.endereco,e1_0.entregador from entrega e1_0
+22:57:32,117 DEBUG SQL:135 - select e1_0.id,e1_0.data,e1_0.endereco,e1_0.entregador from entrega e1_0 where e1_0.id=?
+22:57:32,118 TRACE bind:24 - binding parameter (1:INTEGER) <- [4]
+22:57:39,410  INFO Util:63 - ----desconectar banco
+22:57:39,413  INFO pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/delivery]
